@@ -1,5 +1,6 @@
 <form>
   <div class="col-md-12" *ngIf="headerElements.length>0">
+
     <table class="table table-hover">
       <thead>
       <tr>
@@ -12,7 +13,7 @@
               'fa-sort text-muted': this.sortBy !== head
             }"></i>
           </ng-container>
-  
+
         </th>
       </tr>
       </thead>
@@ -25,7 +26,7 @@
       </tbody>
     </table>
     <pagination (pageSizeChange)="gotoPage($event)" [totalItems]="total" [size]="pageSize" [currentPage]="page"></pagination>
-  
+
   </div>
 
   <!-- <div class="d-flex justify-content-between p-2">

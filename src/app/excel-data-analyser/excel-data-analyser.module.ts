@@ -53,6 +53,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import {DataAnalysisService} from "./data-analysis/service-api/data-analysis.service";
 import {DataAnalyserTableComponent} from "../data-analyser-table/data-analyser-table.component";
 import { PaginationModule } from "../common/pagination/pagination.module";
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
+import {MDBBootstrapModule} from "angular-bootstrap-md";
 
 
 @NgModule({
@@ -99,7 +101,9 @@ import { PaginationModule } from "../common/pagination/pagination.module";
     TagModule,
     MatDialogModule,
     MatSnackBarModule,
-    PaginationModule
+    PaginationModule,
+    NgxSliderModule,
+    MDBBootstrapModule,
     // AppModule,
 
 
@@ -125,7 +129,7 @@ import { PaginationModule } from "../common/pagination/pagination.module";
   ],
   exports: [
     RouterModule,
-    
+
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

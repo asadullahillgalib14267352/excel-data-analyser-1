@@ -11,9 +11,20 @@
     <div class="{{displayViewColumnSection ? 'col-md-8' : 'col-md-12'}}">
       <p-card>
         <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
-        <p-button (click)="onExportDataClick()" type="button" class="pt-2" style=" 
+                <form class="abc">
+
+                  <div class="form-group has-search">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="search" class="form-control" placeholder="Search">
+                  </div>
+        <!--          <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>-->
+
+                  <ngx-slider [(value)]="value1" [(highValue)]="highestSalary" [options]="options" label="salary"></ngx-slider>
+                  <button class="btn"><i class="fa fa-search"></i> Apply</button>
+                </form>
+        <p-button (click)="onExportDataClick()" type="button" class="pt-2" style="
         float: right; padding-left: 5px;">Export Data</p-button>
-        <p-button  (click)="onViewColumnsClick()"  type="button"   class="pt-2" style=" 
+        <p-button  (click)="onViewColumnsClick()"  type="button"   class="pt-2" style="
           float: right;" >View Columns</p-button>
         <app-data-analyser-table   [tableName]="tableName"   [showableColumn]="showableColumn"></app-data-analyser-table>
       </p-card>
@@ -33,7 +44,7 @@
           </div>
         </div>
         <mat-card-actions>
-          <p-button (click)="onApplyColumnsView()" type="button" class="pt-2" style=" 
+          <p-button (click)="onApplyColumnsView()" type="button" class="pt-2" style="
           float: right; margin-right: 30px;">Apply</p-button>
         </mat-card-actions>
       </mat-card>

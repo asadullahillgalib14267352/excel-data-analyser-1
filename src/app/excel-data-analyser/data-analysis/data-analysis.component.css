@@ -45,3 +45,51 @@
   margin-top: 25px;
   margin-left: -40%;
 }
+.abc {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f48fb1;
+  box-shadow: 0 1px 0 0 #f48fb1;
+}
+
+.has-search{
+margin-top: 5px;
+  width: 25%;
+}
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+  border-color: #24292e;
+}
+.ngx-slider{
+  /*margin-top: 10px;*/
+  margin-left: 10px;
+  width: 40%;
+
+}
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}

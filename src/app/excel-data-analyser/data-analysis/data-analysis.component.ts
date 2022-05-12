@@ -8,6 +8,7 @@ import { DataMappingService } from '../data-mapping/services/data-mapping.servic
 // import * as XLSX from "xlsx";
 import { Workbook } from 'exceljs';
 import * as fs from 'file-saver';
+import {LabelType, Options} from "@angular-slider/ngx-slider";
 @Component({
   selector: 'app-data-analysis',
   templateUrl: './data-analysis.component.html',
@@ -42,6 +43,22 @@ export class DataAnalysisComponent implements OnInit {
   tableName:string;
 
   path: string;
+  value1: number = 30;
+  highestSalary : number = 90;
+  options: Options = {
+    floor: 0,
+    ceil: 100,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Min Salary:</b> $' + value;
+        case LabelType.High:
+          return '<b>Max Salary:</b> $' + value;
+        default:
+          return '$' + value;
+      }
+    }
+  };
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -77,7 +94,7 @@ export class DataAnalysisComponent implements OnInit {
 
     this.displayCriteriaAddComponents = false;
   }
-  
+
   fetchList(event) {
     if (event === 'EMPLOYEE') {
       this.tableName='EMPLOYEE';
@@ -173,7 +190,7 @@ export class DataAnalysisComponent implements OnInit {
 
 
   onExportDataClick() {
-   
+
     var query = ``;
     if(this.tableName==="EMPLOYEE"){
       query = `getSortedEmployeeData?sortBy=name&sortType=-1&pageIndex=1&pageSize=1000000`;
@@ -184,7 +201,7 @@ export class DataAnalysisComponent implements OnInit {
         this.details = data.data;
         this.exportExel();
       });
-   
+
   }
   exportExel(){
     var Header = this.showableColumn.map((name) => {
@@ -197,7 +214,7 @@ export class DataAnalysisComponent implements OnInit {
       dataForExcel.push(Object.values(row))
     })
 
-   
+
     let workbook = new Workbook();
     let worksheet = workbook.addWorksheet('Sheet1');
 
